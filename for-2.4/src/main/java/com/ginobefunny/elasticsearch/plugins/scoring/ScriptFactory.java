@@ -66,7 +66,7 @@ public class ScriptFactory implements NativeScriptFactory {
 
 
         public FeatureVectorScoringSearchScript(Map<String, Object> params) throws ScriptException {
-            System.out.println("init--------");
+            //System.out.println("init--------");
             this.field = (String) params.get("field");
             String inputFeatureVectorStr = (String) params.get("inputFeatureVector");
             if (this.field == null || inputFeatureVectorStr == null || inputFeatureVectorStr.trim().length() == 0) {
@@ -94,7 +94,7 @@ public class ScriptFactory implements NativeScriptFactory {
 
         @Override
         public double runAsDouble() {
-            System.out.println("runAsDouble--------");
+            //System.out.println("runAsDouble--------");
 
             if (this.field == null || this.inputFeatureVector == null || this.inputFeatureVectorNorm == 0) {
                 return this.baseConstant;
@@ -107,7 +107,7 @@ public class ScriptFactory implements NativeScriptFactory {
             String docFeatureVectorStr = ((ScriptDocValues.Strings) doc().get(this.field)).getValue();
 
             //System.out.println(docFeatureVectorStr);
-            System.out.println(calculateScore(docFeatureVectorStr));
+            //System.out.println(calculateScore(docFeatureVectorStr));
             return calculateScore(docFeatureVectorStr);
         }
 
